@@ -2,7 +2,6 @@ package _67.org;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Timer;
 
 /**
  * Class implementation
@@ -21,9 +20,21 @@ public class TodoManagerImpl implements TodoManager {
     @Override
     public void create(String title, boolean isCompleted) {
         ToDoItem toDoItem = new ToDoItem(idCounter, title, isCompleted);
-        map.put(idCounter, toDoItem);
+        map.put(idCounter++, toDoItem);
         System.out.printf("S-a facut todulu %s %n",title );
 
+
+
+    }
+
+    @Override
+    public ToDoItem delete(int i) {
+        if (!map.containsKey(i)) {
+            throw new RuntimeException("Such task doesnt exists");
+        }
+        ToDoItem removed = map.remove(i);
+        System.out.printf("Task with this  id %d is deleted", i);
+        return removed;
 
 
     }

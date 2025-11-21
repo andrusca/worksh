@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
      TodoManager manager = new TodoManagerImpl();
      manager.create("First task", false);
+     manager.delete(2);
 
 
 

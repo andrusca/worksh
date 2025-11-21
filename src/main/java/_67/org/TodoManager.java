@@ -14,5 +14,5 @@ public interface TodoManager {
     void create(String title, boolean isCompleted);
 
 
-
+    ToDoItem delete(int i);
 }
