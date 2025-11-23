@@ -1,5 +1,7 @@
 package _67.org;
 
+import java.util.Date;
+
 /**
  * Interface for task management
  *
@@ -11,7 +13,7 @@ package _67.org;
 public interface TodoManager {
 
 
-    void create(String title, boolean isCompleted);
+    void create(String title, boolean isCompleted,Date date);
 
 
     ToDoItem delete(int i);

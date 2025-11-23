@@ -1,5 +1,6 @@
 package _67.org;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,14 +18,14 @@ public class TodoManagerImpl implements TodoManager {
     private Map<Integer, ToDoItem> map = new HashMap<>();
     private int idCounter = 0;
 
+
+
+
     @Override
-    public void create(String title, boolean isCompleted) {
-        ToDoItem toDoItem = new ToDoItem(idCounter, title, isCompleted);
+    public void create(String title, boolean isCompleted,Date creationDate) {
+        ToDoItem toDoItem = new ToDoItem(idCounter, title, isCompleted,creationDate);
         map.put(idCounter++, toDoItem);
         System.out.printf("S-a facut todulu %s %n",title );
-
-
-
     }
 
     @Override
