@@ -17,4 +17,6 @@ public interface TodoManager {
 
 
     ToDoItem delete(int i);
+
+    void update(int id, String title, boolean isCompleted, Date dateCreation);
 }

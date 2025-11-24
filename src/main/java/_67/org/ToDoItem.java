@@ -11,19 +11,11 @@ import java.util.Date;
  */
 
 public class ToDoItem {
-
-    private String title;
     private Integer id;
+    private String title;
+
     private boolean isCompleted;
     private Date creationDate;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public Integer getId() {
         return id;
@@ -31,6 +23,14 @@ public class ToDoItem {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public boolean isCompleted() {
@@ -49,9 +49,9 @@ public class ToDoItem {
         this.creationDate = creationDate;
     }
 
-    public ToDoItem( Integer id, String title,boolean isCompleted, Date creationDate) {
-        this.title = title;
+    public ToDoItem(Integer id, String title, boolean isCompleted, Date creationDate) {
         this.id = id;
+        this.title = title;
         this.isCompleted = isCompleted;
         this.creationDate = creationDate;
     }

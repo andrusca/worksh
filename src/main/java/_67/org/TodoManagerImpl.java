@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class TodoManagerImpl implements TodoManager {
 
-    private Map<Integer, ToDoItem> map = new HashMap<>();
+    private Map<Integer, ToDoItem> idToTask = new HashMap<>();
     private int idCounter = 0;
 
 
@@ -24,20 +24,32 @@ public class TodoManagerImpl implements TodoManager {
     @Override
     public void create(String title, boolean isCompleted,Date creationDate) {
         ToDoItem toDoItem = new ToDoItem(idCounter, title, isCompleted,creationDate);
-        map.put(idCounter++, toDoItem);
+        idToTask.put(idCounter++, toDoItem);
         System.out.printf("S-a facut todulu %s %n",title );
     }
 
     @Override
     public ToDoItem delete(int i) {
-        if (!map.containsKey(i)) {
-            throw new RuntimeException("Such task doesnt exists");
-        }
-        ToDoItem removed = map.remove(i);
+        validateTask(i);
+        ToDoItem removed = idToTask.remove(i);
         System.out.printf("Task with this  id %d is deleted", i);
         return removed;
+    }
 
+    @Override
+    public void update(int id, String title, boolean isCompleted, Date dateCreation) {
+        validateTask(id);
+        ToDoItem toDoItem = idToTask.get(id);
+        toDoItem.setTitle(title);
+        toDoItem.setCompleted(isCompleted);
+        toDoItem.setCreationDate(dateCreation);
+        System.out.printf("task with id  = %d updated",id);
+    }
 
+    private void validateTask(int id) {
+        if (!idToTask.containsKey(id)) {
+            throw new RuntimeException("This exists");
+        }
     }
 
 
